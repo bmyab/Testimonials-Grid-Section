@@ -1,0 +1,11 @@
+@mixin flex($gap:2rem){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin colores($color,$backround){
+  color: $color;
+  background-color: $backround;
+}

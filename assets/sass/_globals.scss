@@ -1,0 +1,111 @@
+@use "colors" as c;
+@use "mixin" as m;
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 1.3rem;
+  overflow-x: hidden;
+  background-color: c.$Lightgrayishblue;
+}
+.testimonials {
+  margin: 0 auto;
+  @include m.flex(2.5rem);
+  flex-wrap: wrap;
+  margin-block: 5rem;
+  max-width: 102.4rem;
+
+  .card__testimonial {
+   
+    &-1 {
+      background-color: c.$Moderateviolet;
+      position: relative;
+      z-index: 100;
+      &::before {
+        content: "";
+        width: 104px;
+        height: 102px;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 26px;
+        background-image: url("../images/bg-pattern-quotation.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: -1;
+      }
+    }
+
+    &-2 {
+      background-color: c.$Verydarkgrayishblue;
+      .paragraph {
+        color: c.$Lightgrayishblue;
+        font-weight: 300;
+      }
+    }
+    &-3 {
+      @include m.colores(c.$Verydarkblackishblue, c.$White);
+
+      .testimonial__header {
+        .texts {
+          color: inherit;
+          span {
+            color: inherit;
+          }
+        }
+      }
+      .testimonial__content {
+        .subtitle {
+          color: c.$Verydarkblackishblue;
+        }
+        .paragraph {
+          color: c.$Verydarkblackishblue;
+        }
+      }
+    }
+    &-4 {
+      background-color: c.$Verydarkblackishblue;
+    }
+    &-5 {
+      @include m.colores(c.$Verydarkblackishblue, c.$White);
+
+      .testimonial__header {
+        .texts {
+          color: inherit;
+          span {
+            color: inherit;
+          }
+        }
+      }
+      .testimonial__content {
+        .subtitle {
+          color: c.$Verydarkblackishblue;
+        }
+        .paragraph {
+          color: c.$Verydarkblackishblue;
+        }
+      }
+    }
+
+    &-2,
+    &-3,
+    &-5{
+      .testimonial__header{
+        img{
+          border:none;
+        }
+      } 
+    }
+  }
+
+}

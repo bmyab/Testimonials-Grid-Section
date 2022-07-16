@@ -1,0 +1,59 @@
+@use 'mixin' as m;
+$breakpoints: (
+  mobile: 600px,
+  tablet: 1024px,
+  laptop: 1240px,
+  desktop-lg: 1800px
+);
+
+@mixin breakpoint($breakpoint, $direction) {
+
+  // Get the breakpoint value.
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+  @if $direction == min {
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  }
+} 
+
+.testimonials{
+  @include breakpoint(tablet,min ){
+    height: 90vh;
+    display: grid;
+    place-content: center;
+    align-content: center;
+    gap: 2rem;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,min-content);
+    grid-template-areas:
+    "card1   card1   card2    card5"
+    "card3   card4   card4    card5" ;
+
+    .card__testimonial{
+      max-width: 60rem;
+      &-1{
+        grid-area: card1;
+        height: 100%;
+      }
+      &-2{
+        grid-area: card2;
+        height: 100%;
+      }
+      &-3{
+        grid-area: card3;
+        height: 100%;
+      }
+      &-4{
+        grid-area: card4;
+      }
+      &-5{
+        grid-area: card5;
+        height: 100%;
+ 
+      }
+    }
+  }
+  
+}
